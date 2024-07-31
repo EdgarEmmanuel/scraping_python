@@ -1,0 +1,18 @@
+<!ELEMENT publications (pub*)>
+<!ELEMENT pub (url, image?, prix?, marque?, modele?, transmission?, annee?, kilometrage?, carburant?, carrosserie?)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT image EMPTY>
+<!ELEMENT prix (#PCDATA)>
+<!ELEMENT marque (#PCDATA)>
+<!ELEMENT modele (#PCDATA)>
+<!ELEMENT transmission (#PCDATA)>
+<!ELEMENT annee (#PCDATA)>
+<!ELEMENT kilometrage (#PCDATA)>
+<!ELEMENT carburant (#PCDATA)>
+<!ELEMENT carrosserie (#PCDATA)>
+<!ATTLIST pub 
+	id NMTOKEN #IMPLIED 
+	date NMTOKENS #IMPLIED 
+	heure NMTOKENS #IMPLIED>
+<!ATTLIST image 
+	src CDATA #REQUIRED>
