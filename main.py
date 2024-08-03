@@ -57,7 +57,7 @@ def scrap_image(soup, class_name):
 def scrap_expat_dakar():
     count = 0
     annonces = []
-    for i in range(2):
+    for i in range(50):
         number_page = i+1
         print("Scraping Page : https://www.expat-dakar.com/voitures/dakar?page=" + str(number_page))
         page = requests.get('https://www.expat-dakar.com/voitures/dakar?page=' + str(number_page))
@@ -92,17 +92,6 @@ def scrap_expat_dakar():
 def create_xml_file(array_of_annonce):
     print("Writing in xml file...")
     publications = etree.Element("publications")
-    # pub = etree.Element("pub")
-    # carosserie = etree.Element("carrosserie", id="humm")
-    # carosserie.text = "carosserie"
-    # pub.append(image)
-    # pub.append(carosserie)
-    # publications.append(pub)
-    # value = tostring(
-    #     E.publications(
-    #         E.Image(src='Germany'),
-    #         carosserie
-    #     ), pretty_print=True, xml_declaration=True, encoding='UTF-8')
     for index in range(len(array_of_annonce)):
         pub = etree.Element("pub")
         pub.set("id", array_of_annonce[index]["id_publication"].strip())
@@ -143,7 +132,6 @@ def create_xml_file(array_of_annonce):
     f.close()
 
 annonces = scrap_expat_dakar()
-#print(annonces)
 create_xml_file(annonces)
 
 
